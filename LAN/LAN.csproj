@@ -60,8 +60,11 @@
     <Compile Include="Engine\ECS\Component.cs" />
     <Compile Include="Engine\ECS\ComponentManager.cs" />
     <Compile Include="Engine\GameObject.cs" />
+    <Compile Include="Engine\GameObjectManager.cs" />
     <Compile Include="Engine\Primitives\Transform.cs" />
     <Compile Include="Engine\Primitives\Vector2.cs" />
+    <Compile Include="Engine\Render\RenderComponent.cs" />
+    <Compile Include="Engine\Render\RenderService.cs" />
     <Compile Include="Game\S_Player.cs" />
     <Compile Include="Network\NetCore.cs" />
     <Compile Include="Network\NetworkMessageEventArgs.cs" />

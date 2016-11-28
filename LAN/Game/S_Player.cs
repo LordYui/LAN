@@ -1,10 +1,6 @@
 ﻿using LAN.Engine;
 using LAN.Engine.Primitives;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LAN.Engine.Render;
 
 namespace LAN.Game
 {
@@ -13,6 +9,7 @@ namespace LAN.Game
         public S_Player()
         {
             this.AddComponent<Transform>();
+            this.AddComponent<RenderComponent>();
         }
     }
 }
