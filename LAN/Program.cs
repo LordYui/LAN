@@ -14,8 +14,6 @@ namespace LAN
         static void Main(string[] args)
         {
             Core c = new Core();
-            S_Player ply = new S_Player();
-            //commit
         }
     }
 }

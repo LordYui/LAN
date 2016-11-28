@@ -9,7 +9,6 @@ namespace LAN.Game
         public S_Player()
         {
             this.AddComponent<Transform>();
-            this.AddComponent<RenderComponent>();
         }
     }
 }

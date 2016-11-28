@@ -4,5 +4,6 @@ namespace LAN.Engine.Render
 {
     class RenderComponent : Component
     {
+        public char Char;
     }
 }

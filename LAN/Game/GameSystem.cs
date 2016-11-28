@@ -1,0 +1,22 @@
+﻿using LAN.Engine;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LAN.Game
+{
+    class GameSystem
+    {
+        public void StartGame()
+        {
+            
+        }
+
+        void Update()
+        {
+            
+        }
+    }
+}
