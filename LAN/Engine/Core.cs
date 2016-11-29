@@ -13,18 +13,19 @@ namespace LAN.Engine
 {
     class Core
     {
-        NetCore netCore = new NetCore();
+        NetCore netCore;
         ComponentManager compManager = new ComponentManager();
         RenderService renderServ = new RenderService();
         GameObjectManager goManager = new GameObjectManager();
         GameSystem gameSystem = new GameSystem();
-        public Core()
+        public Core(bool isServer = false)
         {
-            netCore.OnNetworkMessage += NetCore_OnNetworkMessage;
             GameObjectE.compManager = compManager;
+            netCore = new NetCore(isServer);
+            netCore.OnNetworkMessage += NetCore_OnNetworkMessage;
             renderServ.Start();
-            Thread gameThread = new Thread(gameSystem.StartGame);
-            gameThread.Start();
+            Thread gameThread = new Thread((o) => { gameSystem.StartGame(o); });
+            gameThread.Start(isServer);
             InternalUpdate();
         }
 
@@ -37,7 +38,7 @@ namespace LAN.Engine
         {
             while (true)
             {
-                netCore.Update();
+                netCore.InternalUpdate();
                 renderServ.InternalUpdate();
             }
         }

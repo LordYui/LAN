@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace LAN.Network
 {
-    class NetSyncComponent : Component
+    class NetServerManager : Component
     {
-
     }
 }

@@ -8,15 +8,20 @@ using LAN.Engine;
 
 namespace LAN.Network
 {
-    class NetCore
+    class NetCore : GameObject
     {
         public event NetworkMessageHandler OnNetworkMessage;
         public delegate void NetworkMessageHandler(NetworkMessageEventArgs p);
 
         NetPeer peer;
 
-        public NetCore()
+        public NetCore(bool isServer)
         {
+            if(isServer)
+                this.AddComponent<NetServerManager>();
+            else
+                this.AddComponent<NetClientManager>();
+
             NetPeerConfiguration conf = new NetPeerConfiguration("LAN");
             conf.Port = 2555;
             //conf.EnableMessageType(NetIncomingMessageType.Data);
@@ -24,7 +29,7 @@ namespace LAN.Network
             peer.Start();
         }
 
-        public void Update()
+        public void InternalUpdate()
         {
             NetIncomingMessage msg;
             while((msg = peer.ReadMessage()) != null)
